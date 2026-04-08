@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bandana Giri Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+html{font-size:65%;scroll-behavior:smooth;}
+body{background:#000;color:#fff;padding-top:90px;}
+
+/* VIDEO */
+.bg-video{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+object-fit:cover;
+z-index:-1;
+opacity:0.25;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;
+position:fixed;top:0;width:100%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(8px);
+border-bottom:2px solid #5dbbbb;
+z-index:1000;
+}
+.logo{font-size:2.8rem;color:#5dbbbb;font-weight:600;}
+.navbar ul{display:flex;gap:25px;list-style:none;}
+.navbar a{color:#fff;text-decoration:none;font-size:1.5rem;}
+.navbar a:hover{color:#5dbbbb;}
+
+/* HERO */
+.hero{
+display:flex;justify-content:space-between;align-items:center;
+height:100vh;padding:80px 8%;
+}
+.name{font-size:5.5rem;margin:10px 0;}
+.typing-text{font-size:2.5rem;}
+.typing-text span{color:#5dbbbb;}
+.btn{
+background:#5dbbbb;padding:10px 20px;border-radius:8px;
+color:#fff;text-decoration:none;display:inline-block;
+}
+.hero-right img{
+width:240px;border-radius:50%;border:4px solid #fff;
+}
+
+/* SECTION */
+section{
+padding:100px 8%;
+margin:60px 20px;
+background:rgba(0,0,0,0.6);
+border-radius:15px;
+scroll-margin-top:120px;
+}
+
+/* TITLE */
+.section-title{
+text-align:center;
+background:#5dbbbb;
+padding:12px;
+border-radius:20px;
+margin-bottom:40px;
+font-size:2.2rem;
+}
+
+/* ABOUT */
+.about-container{display:flex;gap:50px;flex-wrap:wrap;}
+.about-text{flex:2;font-size:1.6rem;line-height:1.9;color:#ddd;}
+.about-info{
+flex:1;background:#111;padding:25px;border-radius:12px;
+box-shadow:0 0 15px rgba(93,187,187,0.4);
+font-size:1.5rem;line-height:2;
+}
+
+/* EXPERIENCE */
+.timeline{position:relative;max-width:900px;margin:auto;}
+.timeline::after{
+content:'';position:absolute;width:3px;background:#5dbbbb;
+top:0;bottom:0;left:50%;transform:translateX(-50%);
+}
+.timeline-box{padding:20px 30px;position:relative;width:50%;}
+.timeline-box.left{left:0;}
+.timeline-box.right{left:50%;}
+.timeline-content{
+background:#111;padding:25px;border-radius:12px;
+box-shadow:0 0 15px rgba(93,187,187,0.4);
+}
+.timeline-content h3{color:#5dbbbb;margin-bottom:5px;}
+.timeline-content h4{color:#aaa;margin-bottom:15px;}
+.timeline-content ul{padding-left:20px;line-height:1.8;}
+
+/* SKILLS */
+.skills-container{
+display:flex;flex-wrap:wrap;gap:25px;justify-content:center;
+}
+.skill-box{
+background:#111;padding:25px;border-radius:12px;width:280px;
+box-shadow:0 0 15px rgba(93,187,187,0.3);
+transition:0.3s;
+}
+.skill-box:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(93,187,187,0.6);
+}
+.skill-box h3{
+color:#5dbbbb;margin-bottom:15px;text-align:center;
+}
+.skill-list{
+display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+}
+.skill-list span{
+display:flex;
+align-items:center;
+gap:6px;
+background:#000;
+padding:8px 12px;
+border-radius:6px;
+border:1px solid #5dbbbb;
+font-size:1.3rem;
+}
+.skill-list i{color:#5dbbbb;}
+
+/* PROJECTS */
+.projects-container{
+display:flex;flex-wrap:wrap;gap:30px;justify-content:center;
+}
+.project-card{
+background:#111;padding:25px;border-radius:15px;width:320px;
+box-shadow:0 0 15px rgba(93,187,187,0.3);
+transition:0.3s;
+}
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(93,187,187,0.6);
+}
+.project-card h2{color:#5dbbbb;margin-bottom:15px;}
+.project-card p{color:#ccc;margin-bottom:10px;}
+
+/* CONTACT */
+.contact-container{
+display:flex;flex-wrap:wrap;gap:30px;justify-content:center;
+}
+.contact-card{
+background:#111;padding:30px;border-radius:15px;width:260px;
+text-align:center;
+box-shadow:0 0 15px rgba(93,187,187,0.3);
+}
+.contact-card i{
+font-size:30px;color:#5dbbbb;margin-bottom:15px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.timeline::after{left:0;}
+.timeline-box{width:100%;left:0 !important;}
+.hero{flex-direction:column;text-align:center;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video autoplay muted loop playsinline class="bg-video">
+<source src="c:\Users\MYHOME\Downloads\899-141310139_medium.mp4">
+</video>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<h2 class="logo">Bandana Giri</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#connect">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<div>
+<h1 class="name">Bandana Giri</h1>
+<h2 class="typing-text">I am into <span id="typing"></span></h2>
+<a href="C:\Users\MYHOME\Downloads\BANDANA_GIRI (3).pdf" class="btn">Download Resume</a>
+</div>
+
+<div class="hero-right">
+<img src="C:\Users\MYHOME\OneDrive\Documents\passport pic.jpg">
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="section-title">About Me</div>
+
+<div class="about-container">
+
+<div class="about-text">
+<p>I am a passionate Computer Science student specializing in AI, Cybersecurity, and Web Development, focused on building impactful real-world solutions.</p>
+<p>I have hands-on experience developing AI applications, working with OpenCV, and understanding cybersecurity principles like ethical hacking and threat analysis.</p>
+<p>As Chair of the Cybersecurity Club, I lead initiatives, organize technical events, and mentor peers.</p>
+<p>I aim to grow as a developer by working on innovative and meaningful projects.</p>
+</div>
+
+<div class="about-info">
+<p><strong>🎓 Degree:</strong> B.Tech CSE</p>
+<p><strong>🏫 University:</strong> SR University</p>
+<p><strong>📊 CGPA:</strong> 8.58</p>
+</div>
+
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-title">Experience</div>
+
+<div class="timeline">
+
+<div class="timeline-box left">
+<div class="timeline-content">
+<h3>Cyber Security Virtual Intern</h3>
+<h4>AICTE EduSkills | 2024</h4>
+<ul>
+<li>Worked on ethical hacking and threat detection</li>
+<li>Performed vulnerability analysis</li>
+<li>Completed real-time cybersecurity simulations</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-box right">
+<div class="timeline-content">
+<h3>Chair – Cybersecurity Club</h3>
+<h4>SR University</h4>
+<ul>
+<li>Led events and workshops</li>
+<li>Mentored students</li>
+<li>Organized cybersecurity awareness programs</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-box left">
+<div class="timeline-content">
+<h3>AI Project Developer</h3>
+<h4>Academic Projects</h4>
+<ul>
+<li>Built AI projects like Aandata and MindVault</li>
+<li>Used OpenCV and ML models</li>
+<li>Worked with Python and real-time data</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-title">Skills</div>
+
+<div class="skills-container">
+
+<div class="skill-box">
+<h3>Programming</h3>
+<div class="skill-list">
+<span><i class="fab fa-python"></i> Python</span>
+<span><i class="fas fa-code"></i> C</span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>Web Development</h3>
+<div class="skill-list">
+<span><i class="fab fa-html5"></i> HTML</span>
+<span><i class="fab fa-css3-alt"></i> CSS</span>
+<span><i class="fab fa-js"></i> JavaScript</span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>AI / ML</h3>
+<div class="skill-list">
+<span><i class="fas fa-brain"></i> Machine Learning</span>
+<span><i class="fas fa-eye"></i> OpenCV</span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>Cybersecurity</h3>
+<div class="skill-list">
+<span><i class="fas fa-shield-alt"></i> Ethical Hacking</span>
+<span><i class="fas fa-lock"></i> Threat Analysis</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="section-title">Projects</div>
+
+<div class="projects-container">
+
+<div class="project-card">
+<h2>Aandata</h2>
+<p>AI assistant for farmers</p>
+</div>
+
+<div class="project-card">
+<h2>MindVault</h2>
+<p>Mental health detection system</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="connect">
+<div class="section-title">Contact</div>
+
+<div class="contact-container">
+
+<div class="contact-card">
+<i class="fas fa-envelope"></i>
+<p>Email</p>
+</div>
+
+<div class="contact-card">
+<i class="fab fa-github"></i>
+<p>GitHub</p>
+</div>
+
+</div>
+</section>
+
+<script>
+const words=["Cybersecurity","AI Development","Web Development"];
+let i=0,j=0,del=false;
+function type(){
+let word=words[i];
+document.getElementById("typing").textContent=word.substring(0,j);
+if(!del && j<word.length) j++;
+else if(del && j>0) j--;
+if(j===word.length){del=true;setTimeout(type,1000);return;}
+if(j===0){del=false;i=(i+1)%words.length;}
+setTimeout(type,120);
+}
+type();
+</script>
+
+</body>
+</html>
